@@ -17,4 +17,8 @@ export class CinemaService {
   getCinemas(ville: any) {
    return this.http.get(ville._links.cinemas.href);
   }
+
+  getSalles(cinema: any) {
+    return this.http.get(cinema._links.salles.href);
+  }
 }
