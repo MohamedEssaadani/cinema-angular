@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {CinemaService} from '../services/cinema.service';
 
 @Component({
@@ -28,7 +27,7 @@ private url = 'http://localhost:8080';
       })
   }
 
-  getCinemas(ville: any) {
+  onGetCinemas(ville: any) {
     this.currentVille = ville;
     this.cinemaService.getCinemas(ville)
       .subscribe(data=>{
@@ -38,7 +37,7 @@ private url = 'http://localhost:8080';
       })
   }
 
-  getSalles(cinema: any){
+  onGetSalles(cinema: any){
     this.currentCinema = cinema;
     this.cinemaService.getSalles(cinema)
       .subscribe(data=>{

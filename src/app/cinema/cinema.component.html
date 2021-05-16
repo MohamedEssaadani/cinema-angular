@@ -5,7 +5,7 @@
         <li *ngFor="let ville of villes._embedded.villes"
             [ngClass]="ville === currentVille ? 'active' : ''"
             class="list-group-item clickable"
-            (click)="getCinemas(ville)" >
+            (click)="onGetCinemas(ville)" >
           {{ville.nom}}
         </li>
       </ul>
@@ -17,11 +17,23 @@
             <ul *ngIf="cinemas" class="nav nav-pills">
               <li *ngFor="let cinema of cinemas._embedded.cinemas"
                   [ngClass]="cinema === currentCinema ?  'active' : ''"
-                  (click)="getSalles(cinema)"
+                  (click)="onGetSalles(cinema)"
                   class="list-group-item clickable" >
-                <a>{{cinema.nom}}</a>
+                <a (click)="onGetSalles(cinema)">{{cinema.nom}}</a>
               </li>
             </ul>
+            <div class="row" *ngIf="salles">
+              <div *ngFor="let s of salles._embedded.salles" class="col-md-6 mt-3">
+                <div class="card ">
+                  <div class="card-header">
+                    {{s.nom}}
+                  </div>
+                  <div class="card-body">
+
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
       </div>
     </div>
