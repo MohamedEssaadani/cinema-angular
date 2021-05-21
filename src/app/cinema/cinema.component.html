@@ -28,8 +28,8 @@
                   <div class="card-header">
                     {{s.nom}}
                   </div>
-                  <div class="card-body">
-
+                  <div class="card-body" *ngIf="s.projections">
+                    <img src="{{cinemaService.host+'/imageFilm/'+s.projections._embedded.projections[0].film}}"/>
                   </div>
                 </div>
               </div>
