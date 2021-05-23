@@ -43,7 +43,10 @@ export class CinemaComponent implements OnInit {
         this.salles = data;
 
         this.salles._embedded.salles.forEach((salle:any) =>{
-          this.cinemaService.getProjections(salle);
+          this.cinemaService.getProjections(salle)
+            .subscribe((data:any)=>{
+              salle.projections=data;
+          })
         })
       }, error=>{
         console.log(error);
